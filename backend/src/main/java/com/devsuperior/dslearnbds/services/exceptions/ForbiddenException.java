@@ -1,8 +1,9 @@
 package com.devsuperior.dslearnbds.services.exceptions;
 
-public class DataBaseException extends RuntimeException{
+public class ForbiddenException extends RuntimeException{
 
-    public DataBaseException(String msg){
+    public ForbiddenException(String msg){
+
         super(msg);
     }
 

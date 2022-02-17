@@ -18,6 +18,8 @@ import javax.persistence.EntityNotFoundException;
 @Service
 public class UserService implements UserDetailsService {
 
+    @Autowired
+    private AuthService authService;
 
     @Autowired
     private UserRepository userRepository;
@@ -26,6 +28,9 @@ public class UserService implements UserDetailsService {
 
     @Transactional(readOnly = true)
     public UserDTO findById(Long id){
+
+        authService.validateSelfOrAdmin(id);
+
         User entity = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
         return new UserDTO(entity);
 

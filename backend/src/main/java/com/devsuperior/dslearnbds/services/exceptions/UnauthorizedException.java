@@ -1,8 +1,9 @@
 package com.devsuperior.dslearnbds.services.exceptions;
 
-public class DataBaseException extends RuntimeException{
+public class UnauthorizedException extends RuntimeException{
 
-    public DataBaseException(String msg){
+    public UnauthorizedException(String msg){
+
         super(msg);
     }
 
